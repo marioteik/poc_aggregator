@@ -1,0 +1,43 @@
+{
+  "name": "sample-app-angular",
+  "version": "0.0.0",
+  "license": "MIT",
+  "angular-cli": {},
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve --prod --source-map",
+    "build": "ng build --prod --source-map",
+    "test": "npm run build && cypress-runner run",
+    "test:open": "npm run build && cypress-runner open",
+    "e2e": "npm run test",
+    "gh-pages": "ng build --base-href=/sample-app-angular/ && shx rm -rf pages && shx mkdir pages && cd pages && git init && git remote add pages git@github.com:ui-router/sample-app-angular.git && git fetch pages && git checkout gh-pages && git rm -rf * && shx mv ../dist/* . && git add . && git commit -m 'Update gh-pages' . && git push && cd .. && shx rm -rf pages"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/common": "^6.0.9",
+    "@angular/compiler": "^6.0.9",
+    "@angular/core": "^6.0.9",
+    "@angular/forms": "^6.0.9",
+    "@angular/http": "^6.0.9",
+    "@angular/platform-browser": "^6.0.9",
+    "@angular/platform-browser-dynamic": "^6.0.9",
+    "@angular/router": "^6.0.9",
+    "@uirouter/angular": "^2.0.0",
+    "@uirouter/visualizer": "^6.0.0",
+    "core-js": "^2.5.7",
+    "rxjs": "^6.2.2",
+    "rxjs-compat": "^6.2.2",
+    "ts-helpers": "^1.1.2",
+    "zone.js": "^0.8.20"
+  },
+  "devDependencies": {
+    "@angular/cli": "^6.0.8",
+    "@angular/compiler-cli": "^6.0.7",
+    "@types/jasmine": "^2.8.8",
+    "@uirouter/cypress-runner": "^1.0.8",
+    "codelyzer": "^4.4.2",
+    "shx": "^0.3.2",
+    "typescript": ">=2.7.0 <2.8.0",
+    "@angular-devkit/build-angular": "~0.6.8"
+  }
+}
